@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Girlfriend Day 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Indie Flower', cursive;
+      background: url('https://i.pinimg.com/originals/48/d3/60/48d3604432ed597b8a59b1c8be21e255.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ff69b4;
+      text-align: center;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.85);
+      margin: 5% auto;
+      padding: 30px;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 25px;
+      box-shadow: 0 0 15px pink;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 1.3em;
+    }
+
+    button {
+      background-color: #ffb6c1;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1.2em;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+    }
+
+    .cute-button {
+      display: block;
+      margin: 20px auto 0;
+      padding: 12px 24px;
+      background-color: #ff69b4;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cute-button:hover {
+      background-color: #ff1493;
+    }
+
+    .hidden-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.4em;
+      color: #ff1493;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 192, 203, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      background-color: #fff0f6;
+      margin: 15% auto;
+      padding: 20px 30px;
+      border: 2px solid #ff69b4;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 0 10px #ff69b4;
+    }
+
+    .modal-buttons button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'Indie Flower', cursive;
+    }
+
+    .modal-buttons .yes {
+      background-color: #ff69b4;
+      color: white;
+    }
+
+    .modal-buttons .no {
+      background-color: #f8d7da;
+      color: #d63384;
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      color: #ff69b4;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>✨❤️‍🔥Happy International Girlfriend Day!✨❤️‍🔥 </h1>
+    <p>To my cutest baby ducklingg🦆 ,</p>
+    <p>💋🥀🌸You're the  my sugar to cake my drought to lake my dreams ill never wake sleepless nights to take your bday to bake my hands to take, my love to make my duckiee to quakee for her sake my love will neva fake.</p>
+    <p>Click below for a special surprise! 💫✨🫧❤️‍🔥😽</p>
+
+    <button onclick="showMessage()">💌 TOP SECRET </button>
+
+    <div class="hidden-message" id="secretMessage">
+      i love you so much . <br>
+      ou're the melody in my every song,
+With you, my heart feels safe and strong.
+Your laugh, a spark, so pure and bright,
+You turn my darkness into light. <br>
+     💖Supriyaaa💖 i love yaa soo muchhhieeee!!
+    </div>
+
+    <button id="promise-btn" class="cute-button">🫧❤️‍🔥will you be mine ?</button>
+  </div>
+
+  <!-- Modal -->
+  <div id="promiseModal" class="modal">
+    <div class="modal-content">
+      <p id="modalText">Will you buy me chocolate flavor when i crave for one *evil laugh* ? 🥹💖</p>
+      <div class="modal-buttons">
+        <button id="yesBtn" class="yes">Yes 💕</button>
+        <button id="noBtn" class="no">No 😔</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("secretMessage").style.display = "block";
+    }
+
+    // Falling hearts
+    const hearts = ["💖", "💕", "💗", "💓", "💞"];
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+      document.body.appendChild(heart);
+    }
+
+    // Modal logic
+    let noClicks = 0;
+
+    const modal = document.getElementById("promiseModal");
+    const modalText = document.getElementById("modalText");
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const triggerBtn = document.getElementById("promise-btn");
+
+    const noResponses = [
+      "Hehe 😝 don't be shy, say yes!",
+      "Really?? are you sure about this baby  😿",
+      "*whahahahahahha* gojo laugh ! 🐱💕"
+    ];
+
+    triggerBtn.onclick = () => {
+      modal.style.display = "block";
+      noClicks = 0;
+      modalText.innerText = "Will you buy me chocolate flavor when i crave for one *evil laugh* ? 🥹💖";
+    };
+
+    yesBtn.onclick = () => {
+      modalText.innerText = "Yaaaay!! I love you so much 💖💍💑";
+      setTimeout(() => modal.style.display = "none", 2000);
+    };
+
+    noBtn.onclick = () => {
+      if (noClicks < 2) {
+        modalText.innerText = noResponses[noClicks];
+        noClicks++;
+      } else {
+        modalText.innerText = "Alright... bina condom ke then ! 😤💕";
+        setTimeout(() => modal.style.display = "none", 2500);
+      }
+    };
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  </script>
+
+</body>
+</html>
